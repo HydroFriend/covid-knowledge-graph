@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    
+    <title>COVID-19 PLATFORM</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!--
+
+TemplateMo 546 Sixteen Clothing
+
+https://templatemo.com/tm-546-sixteen-clothing
+
+-->
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-sixteen.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+
+
+    <style>
+     
+     .button1 {
+	
+    
+	font-size: 13px!important;
+	height: 30px;
+	line-height: 18px!important;
+	padding: 3px 18px;
+	display: inline-block;
+	vertical-align: middle;
+	font-weight: normal;
+	border-radius: 3px;
+	margin-right:20%;
+    margin-bottom: 10px;
+    margin-top:10px;
+	border: 1px solid #388ce6;
+	color: #ffffff;
+	background-color: #388ce6;
+	cursor: pointer;
+
+}
+.button1:hover {
+	background-color:#326eb3;
+}
+.button1:active {
+	position:relative;
+	top:1px;
+}
+      .input {
+          padding: 6px 15px;
+          width:90%;
+          text-align: center;
+          background-color: rgb(247, 241, 241);
+          border: 2px solid #d0eed9;
+          border-radius:5px;
+          color: rgb(14, 13, 13);
+         
+      }
+     
+      .hidden{
+            display: none;
+        }
+        .show{
+            display: block;
+        }
+        .querybox1{
+          border-width: 0 0 1px 0;
+          border-style: solid;
+          border-color: darkgrey;
+          align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+        }
+
+        .image, .accordion-menu{
+  width: 100%;
+}
+.title{
+  background-color: #e77f67;
+  display: flex;
+  color: #fff;
+  padding: 20px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  align-items: center;
+  justify-content: space-between;
+}
+.icon{
+  position: relative;
+  width: 14px;
+}
+.icon::before, .icon::after{
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 3px;
+  background-color: #fff;
+  top: -1.5px;
+}
+.icon::after{
+  transform: rotate(90deg);
+  transition: .5s linear;
+}
+.text{
+  background-color: #ffffff60;
+  color: rgb(83, 67, 67);
+  line-height: 26px;
+  margin: 6px 0;
+  opacity: 0;
+  height: 0;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+.item:target .text{
+  height: auto;
+  opacity: 1;
+  padding: 20px;
+  margin: 12px 0;
+  overflow-x: auto;
+  overflow-y: scroll;
+  
+}
+.text2{
+  background-color: #ffffff60;
+  color: rgb(83, 67, 67);
+  line-height: 26px;
+  margin: 6px 0;
+  opacity: 0;
+  height: 0;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+.item:target .text2{
+  height: 200px;
+  opacity: 1;
+  padding: 20px;
+  margin: 12px 0;
+  overflow-x: auto;
+  overflow-y: scroll;
+  
+}
+.item:target .icon::after{
+  transform: rotate(0);
+  
+  
+}
+@media screen and (max-width:960px){
+  .container{
+    max-width: 600px;
+  }
+  .image, .accordion-menu{
+    width: 100%;
+    margin: 20px 0;
+  }
+}
+      
+ 
+  
+
+
+  </style>
+
+  </head>
+
+  <body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+    <!-- ***** Preloader End ***** -->
+
+    <!-- Header -->
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="index.html"><h2>Covid-19 <em>Platform</em></h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li> 
+              <li class="nav-item active">
+                <a class="nav-link" href="products.html">Vaccine Info</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">Trend</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Methods</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Page Content -->
+    <div class="page-heading products-heading header-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-content">
+              <h4>Covid-19 Analysis</h4>
+              <h2>Knowledge Graph</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="products">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="filters">
+              <ul>
+                <li><a href = "products.html">Main Nodes</a></li>
+                <li><a href = "products_loc.html">Vaccine Locator</a></li>
+                <li><a href = "products_sym.html">Symptoms</a></li>
+                <li><a href = "products_social.html" class="active">Social Media</a></li>
+                <li><a href = "vacc_info_drug.html">Drug</a></li>
+                  
+              </ul>
+            </div>
+          </div>
+          
+            
+          
+          
+        </div>
+      </div>
+    </div>
+    <div>
+    
+      <div id="state_search" style="float:left; width:70%;height:100%;"></div>
+
+    <div id="querybox" style="float:right;width:27%;margin-right:10px;">
+       
+
+        <div class="accordion-menu">
+          <div class="item" id="item1">
+            <a href="#item1" class="title">
+              <span>Type in to search</span>
+              <i class="icon"></i>
+            </a>
+            <div class="text">
+              <input name="node_state" id = "nodes_state" class = "input" type="text" placeholder="Type in any node name or node property to get info"
+             onkeypress="EnterPress()" >
+            </div>
+          </div>
+          <div class="item" id="item2">
+            <a href="#item2" class="title">
+              <span>How many nodes you want to display?</span>
+              <i class="icon"></i>
+            </a>
+            <div class="text">
+              <input id= "slide" type="range" min="0" max="150" value="50" style="width:90%;">
+              <div id="boxf2" style="height:20%;"></div>
+          </div>
+        </div>
+          <div class="item" id="item3">
+            <a href="#item3" class="title">
+              <span>Node properties</span>
+              <i class="icon"></i>
+            </a>
+            <div id = "boxf1" class="text">
+              
+            </div>
+          </div>
+          <div class="item" id="item4">
+            <a href="#item4" class="title">
+              <span>Node data</span>
+              <i class="icon"></i>
+            </a>
+            <div id = "nodeinfo" class="text2">
+              </div>
+          </div>
+          <div class="item" id="item5">
+            <a href="#item5" class="title">
+              <span>link data</span>
+              <i class="icon"></i>
+            </a>
+            <div id = "linkinfo" class="text2"></div>
+          </div>
+        </div>
+
+
+
+    </div>
+
+    
+    <!-- <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="inner-content">
+              <p>Copyright &copy; 2020 Sixteen Clothing Co., Ltd.
+            
+            - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer> -->
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
+
+
+    <!-- Additional Scripts -->
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/owl.js"></script>
+    <script src="assets/js/slick.js"></script>
+    <script src="assets/js/isotope.js"></script>
+    <script src="assets/js/accordions.js"></script>
+    <script src="data/data.js"></script>
+    <script src="js/d3.v3.min.js"></script>
+    <script src="js/state.js"></script>
+
+
+    <script language = "text/Javascript"> 
+      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+      function clearField(t){                   //declaring the array outside of the
+      if(! cleared[t.id]){                      // function makes it static and global
+          cleared[t.id] = 1;  // you could use true and false, but that's more typing
+          t.value='';         // with more chance of typos
+          t.style.color='#fff';
+          }
+      }
+    </script>
+
+<script>
+  var idd =4;
+  
+ 
+  
+      function clearinfo(){
+         
+          document.getElementById("nodes_state").value = "";
+         
+         
+      }
+ 
+  
+  function calc_social() {
+     nodes_limit = parseInt($("input[id='slide']").val());
+     input = $("input[id='nodes_state']").val();
+     
+   
+     // 获取输入框中的数据
+     var value  = input.toLowerCase()
+     
+     
+   
+     var data1 = {}
+         data1.nodes = JSON.parse(t1_text);
+         data1.links = JSON.parse(t2_text);
+         
+         
+     var data3 = {}
+         data3.nodes = []
+        
+         data3.links = []
+         //先找输入的节点 
+          if (value == "") {
+              data3.nodes=[20789,20790,20558,20559,20560,20561,20562,20563,20564,20565,20566,20567,
+              20577,20578,20579,20580,20581,20582,20583,20584,20585,20586,20587];
+               document.querySelector('#boxf1').innerHTML = "Knowledge graph of Covid-19 Social Media, by April 8th 2021.";
+               var watch = [];//用来判断link中是否有重复 
+
+               for (i = 0;i<data1.links.length; i++) {
+               for (j = 0; j<data3.nodes.length;j++){
+               if (data3.nodes[j]) {
+               if (data1.links[i].source == data3.nodes[j] ) {
+               if (watch.indexOf(i) == -1) {
+               data3.links.push(data1.links[i])
+               watch.push(i)
+               
+               }
+            }   
+           }
+          }
+   }//检索所有出现在source和target的边
+
+     var boxf2show = data3.links.length+1;
+     document.querySelector('#boxf2').innerHTML =  boxf2show +" nodes are displayed.";
+     return data3.links
+       
+
+  }
+         
+         
+     for (i = 1;i<20792; i++) {
+         if (data1.nodes[i+0]) {
+         if (data1.nodes[i+0].name.toLowerCase() == value) {
+         data3.nodes.push(i)
+     }
+     }
+ }//根据输入的name找到对应的节点，返回对应的id
+ console.log(data3.nodes)
+     
+     
+     var watch = [];//用来判断link中是否有重复 
+     console.log(data1.links[20521])
+     
+for (j = 0; j<data3.nodes.length;j++){
+  if (data3.nodes[j]) {
+      for (i = 20521;i<data1.links.length; i++) {
+          if (data3.links.length>=nodes_limit) {  break;}//控制显示的节点数，避免卡顿
+      
+          
+             if (data1.links[i].source == data3.nodes[j] || data1.links[i].target == data3.nodes[j]) {
+                 console.log(data1.links[i])
+                      if (watch.indexOf(i) == -1) {
+                         data3.links.push(data1.links[i])
+                         watch.push(i)
+                         
+                      }    
+                  
+              }   
+          }
+     }
+  }//检索所有出现在source和target的边
+     var boxf2show = data3.links.length+1;
+     document.querySelector('#boxf2').innerHTML =  boxf2show +" nodes are displayed.";
+     console.log(data3.links)
+     return data3.links
+     
+}
+  
+  function EnterPress() {
+      if (event.keyCode==13){
+          calc_social();
+          
+          state();
+      
+      }
+  }
+
+  
+
+
+  contentHook = function(item){
+      return "<div>"+item.name+"</div>"
+  }
+ 
+  
+  function state() {
+      
+ 
+      try {
+          $("svg").remove()
+          var data = {}
+          data.nodes = JSON.parse(t1_text);
+          data.links = calc_social();
+          document.querySelector('#linkinfo').innerHTML = JSON.stringify(calc_social());
+          
+          var config = {
+              //不需要content和钩子函数了，回显另外编写函数
+              content: null,
+              contentHook: null,
+              
+              width: document.getElementById("state_search").clientWidth,
+              height: document.getElementById("state_search").clientHeight
+          }
+          initKG(data, config, "#state_search")
+      } catch (err) {
+
+      }
+  
+  
+}
+
+
+
+  
+  
+  state();
+
+
+</script>
+
+
+  </body>
+
+</html>

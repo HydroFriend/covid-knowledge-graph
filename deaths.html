@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>COVID-19 PLATFORM</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!--
+
+TemplateMo 546 Sixteen Clothing
+
+https://templatemo.com/tm-546-sixteen-clothing
+
+-->
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-sixteen.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <style>
+      .submenu{
+        display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 100px;
+  font-size: large;
+  box-shadow: 0px 8px 16px 0px rgba(224, 214, 214, 0.2);
+  
+        }
+        .li1 {
+          height:50px;
+          color: black;
+        }
+      nav li:hover>ul {
+            display: block;
+        }
+    </style>
+
+  </head>
+
+  <body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+    <!-- ***** Preloader End ***** -->
+
+    <!-- Header -->
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="index.html"><h2>COVID-19 <em>PLATFORM</em></h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li> 
+              <li class="nav-item">
+                <a class="nav-link" href="products.html">Vaccine Info</a>
+              </li>
+              <li class="nav-item active" id = 'atstst'>
+                <a class="nav-link" href="about.html">Trend</a>
+                <ul class="submenu">
+                  <li class = "li1"><a href = "about.html">Infected Cases</a>
+                  <li class = "li1"><a href = "deaths.html">Deaths</a>
+                  </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Methods</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Page Content -->
+    <div class="page-heading about-heading header-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-content">
+              <h4>Covid-19</h4>
+              <h2>Dynamic Visualization</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="best-features about-features">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h2>Bar Chart Race of Covid-19 Deaths</h2>
+            
+            </div>
+          </div>
+          
+            <div id="chart">
+             
+            </div>
+          
+          
+        </div>
+      </div>
+    </div>
+
+    
+  
+         
+          
+            
+
+    
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="inner-content">
+              <p>Covid-19 Data visualization using D3</p>
+            
+           </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- Additional Scripts -->
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/owl.js"></script>
+    <script src="assets/js/slick.js"></script>
+    <script src="assets/js/isotope.js"></script>
+    <script src="assets/js/accordions.js"></script>
+    <script src="data/deaths.js"></script>
+    <script src="js/d3.js"></script>
+    <script>
+  console.log(dataOri);
+  const width = 1200, height = 600, margin = { top: 20, bottom: 0, left: 100, right: 100 };
+  const chartWidth = width - (margin.left + margin.right), chartHeight = height - (margin.top + margin.bottom);
+  const data = [];
+  const count = 10;
+  const duration = 150;
+  const barPadding = 20;
+  const barHeight = (chartHeight - (barPadding * count)) / count;
+  const getDate = () => dataOri[0][dateIndex];
+  let dateIndex = 0;
+  let date = getDate();
+  let dataSlice = [];
+  let chart = null, scale = null, axis = null, svg = null, dateTitle = null;
+
+  // 创建SVG
+  function createSvg() { svg = d3.select('#chart').append('svg').attr('width', width).attr('height', height);
+}
+  // 格式化数据
+  function formatData() {
+    dataOri[0].forEach((date, index) => {
+      if (index > 0) {
+        dataOri.forEach((row, rowIndex) => {
+          if (rowIndex > 0) {
+            data.push({
+              name: row[0],
+              value: Number(row[index]),
+              lastValue: index > 1 ? Number(row[index - 1]) : 0,
+              date: date,
+              color: randomRgbColor()
+            });
+          }
+        });
+      }
+    });
+  }
+
+  // 获取当天数据并按倒叙排列
+  function sliceData() {
+    dataSlice = data.filter(d => d.date === date).sort((a, b) => b.value - a.value).slice(0, count);
+  }
+  // 创建比例尺
+  function createScale() {
+    scale = d3.scaleLinear().domain([0, d3.max(dataSlice, d => d.value)]).range([0, chartWidth]);
+}
+  // 创建坐标轴
+  function renderAxis() {
+    createScale();
+
+    axis = d3.axisTop().scale(scale).ticks(5).tickPadding(10).tickSize(0);
+
+    svg.append('g')
+      .classed('axis', true)
+      .style('transform', `translate3d(${margin.left}px, ${margin.top}px, 0)`)
+      .call(axis);
+  }
+
+  // 创建坐标线
+  function renderAxisLine() {
+    d3.selectAll('g.axis g.tick').select('line.grid-line').remove();
+    d3.selectAll('g.axis g.tick').append('line')
+      .classed('grid-line', true)
+      .attr('stroke', 'black')
+      .attr('x1', 0)
+      .attr('y1', 0)
+      .attr('x2', 0)
+      .attr('y2', chartHeight);
+  }
+
+  // 当数据变化时更新坐标轴
+  function updateAxis() {
+    createScale();
+
+    axis.scale().domain([0, d3.max(dataSlice, d => d.value)]);
+
+    svg.select('g.axis')
+      .transition().duration(duration).ease(d3.easeLinear)
+      .call(axis);
+
+    d3.selectAll('g.axis g.tick text').attr('font-size', 14);
+  }
+
+  // 渲染日期标题
+  function renderDateTitle() {
+    dateTitle = svg.append('text')
+      .classed('date-title', true)
+      .text(date)
+      .attr('x', chartWidth - margin.top)
+      .attr('y', chartHeight - margin.left)
+      .attr('fill', 'rgb(128, 128, 128)')
+      .attr('font-size', 40)
+      .attr('text-anchor', 'end')
+  }
+
+  function calTranslateY(i, end) {
+    if (dateIndex === 1 || end) {
+      return (barHeight + barPadding) * i + (barPadding / 2);
+    } else {
+      return (barHeight + barPadding) * (count + 1);
+    }
+  }
+
+  function createChart() {
+    chart = svg.append('g')
+      .classed('chart', true)
+      .style('transform', `translate3d(${margin.left}px, ${margin.top}px, 0)`);
+  }
+
+  function renderChart() {
+    const bars = chart.selectAll('g.bar').data(dataSlice, (d) => d.name);
+
+    let barsEnter;
+
+    barsEnter = bars.enter()
+      .append('g')
+      .classed('bar', true)
+      .style('transform', (d, i) => `translate3d(0, ${calTranslateY(i)}px, 0)`);
+
+    dateIndex > 1 && barsEnter
+      .transition().duration(this.duration)
+      .style('transform', (d, i) => `translate3d(0, ${calTranslateY(i, 'end')}px, 0)`);
+
+    barsEnter.append('rect')
+      .style('width', d => scale(d.value))
+      .style('height', barHeight + 'px')
+      .style('fill', d => d.color);
+
+    barsEnter.append('text')
+      .classed('label', true)
+      .text(d => d.name)
+      .attr('x', '-5')
+      .attr('y', barPadding)
+      .attr('font-size', 14)
+      .style('text-anchor', 'end');
+
+    barsEnter.append('text')
+      .classed('value', true)
+      .text(d => d.value)
+      .attr('x', d => scale(d.value) + 10)
+      .attr('y', barPadding);
+
+    // 更新模式
+    bars.transition().duration(duration).ease(d3.easeLinear)
+      .style('transform', (d, i) => 'translate3d(0, ' + calTranslateY(i, 'end') + 'px, 0)')
+      .select('rect')
+      .style('width', d => scale(d.value) + 'px');
+
+    bars
+      .select('text.value')
+      .transition().duration(duration).ease(d3.easeLinear)
+      .attr('x', d => scale(d.value) + 10)
+      .tween('text', function (d) {
+        const textDom = this;
+        const i = d3.interpolateRound(d.lastValue, d.value);
+        return (t) => textDom.textContent = i(t);
+      });
+
+    // 退出模式
+    bars.exit()
+      .transition().duration(duration).ease(d3.easeLinear)
+      .style('transform', function (d, i) {
+        return 'translate3d(0, ' + calTranslateY(i) + 'px, 0)';
+      })
+      .style('width', function (d) {
+        return scale(d.value) + 'px';
+      })
+      .remove();
+  }
+
+  function createTicker() {
+    const ticker = d3.interval(() => {
+      if (dateIndex < dataOri[0].length - 1) {
+        dateIndex++;
+        date = getDate();
+        dateTitle.text(date);
+        sliceData();
+        updateAxis();
+        renderAxisLine();
+        renderChart();
+      } else {
+        ticker.stop();
+      }
+    }, duration);
+  }
+
+  function init() {
+    createSvg(); // 创建一个svg
+    formatData(); // 格式化数据
+    sliceData(); // 截取当天数据
+    renderAxis(); // 渲染坐标轴
+    renderAxisLine(); // 渲染指示线
+    renderDateTitle(); // 渲染日期
+    createChart(); // 创建图表
+    renderChart(); // 渲染图表
+    createTicker(); // 创建定时器
+  }
+
+  init();
+ 
+
+  function randomRgbColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r},${g},${b})`;
+  }
+
+</script>
+
+
+    <script language = "text/Javascript"> 
+      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+      function clearField(t){                   //declaring the array outside of the
+      if(! cleared[t.id]){                      // function makes it static and global
+          cleared[t.id] = 1;  // you could use true and false, but that's more typing
+          t.value='';         // with more chance of typos
+          t.style.color='#fff';
+          }
+      }
+    </script>
+
+
+  </body>
+
+</html>
